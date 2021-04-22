@@ -55,4 +55,52 @@ public class WinTest {
         };
         assertThat(Win.check(board), is(false));
     }
+
+    @Test
+    public void whenVertical4Win() {
+        int[][] board = {
+                {0, 0, 0, 0, 1},
+                {0, 0, 0, 0, 1},
+                {0, 0, 0, 0, 1},
+                {0, 0, 0, 0, 1},
+                {0, 0, 0, 0, 1},
+        };
+        assertThat(Win.check(board), is(true));
+    }
+
+    @Test
+    public void whenNotWinRnd() {
+        int[][] board = {
+                {1, 1, 0, 0, 0},
+                {0, 0, 1, 0, 0},
+                {0, 0, 1, 0, 0},
+                {0, 0, 0, 0, 1},
+                {0, 0, 0, 0, 1},
+        };
+        assertThat(Win.check(board), is(false));
+    }
+
+    @Test
+    public void whenNotWinButWilBeWin() {
+        int[][] board = {
+                {0, 1, 0, 0, 0},
+                {0, 0, 0, 1, 0},
+                {0, 1, 0, 0, 0},
+                {0, 1, 0, 0, 0},
+                {0, 1, 0, 0, 0},
+        };
+        assertThat(Win.check(board), is(false));
+    }
+
+    @Test
+    public void whenNotWinButWilBeWin2() {
+        int[][] board = {
+                {0, 0, 0, 0, 0},
+                {0, 0, 0, 1, 0},
+                {0, 0, 0, 1, 0},
+                {0, 0, 0, 0, 0},
+                {1, 0, 0, 1, 1},
+        };
+        assertThat(Win.check(board), is(false));
+    }
 }
